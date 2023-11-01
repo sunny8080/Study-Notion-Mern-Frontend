@@ -14,13 +14,16 @@ import { VscDashboard, VscSignOut, VscSignIn } from "react-icons/vsc"
 import { logout } from '../../services/operations/authServices'
 import { BiCategory, BiDetail } from 'react-icons/bi'
 import { getAllCategories } from '../../services/operations/otherServices'
+import { getCurrentUser } from '../../services/operations/profileServices'
+import { setLoading } from '../../redux/slices/authSlice'
+
 
 const Navbar = () => {
 
-  const { token } = useSelector((state) => state.auth)
+  const { token, loading } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const { cartItemsCount } = useSelector((state) => state.cart)
-  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,10 +42,22 @@ const Navbar = () => {
         toast.error('Failed to load backend');
       }
       toast.dismiss(toastId);
-      setLoading(false);
+      setLoading2(false);
     }
     fetchCatalog();
   }, []);
+
+
+  useEffect(() => {
+    const getCurrentUserDetails = async () => {
+      setLoading(true);
+      if (token) {
+        await getCurrentUser(token, dispatch, navigate);
+      }
+      setLoading(false);
+    }
+    getCurrentUserDetails();
+  }, [token, dispatch, navigate]);
 
   const matchRoute = (linkPath) => {
     if (linkPath === '/') return matchPath({ path: linkPath }, location.pathname);
@@ -125,9 +140,9 @@ const Navbar = () => {
         {/* Login / SignUp / DashBoard / Cart */}
         <div className='hidden md:flex gap-x-4 items-center' >
           {
-            loading &&
+            (loading || loading2) &&
             (
-              <div className='text-white'>
+              <div className='text-white font-bold'>
                 Loading ...
               </div>
             )
@@ -183,9 +198,9 @@ const Navbar = () => {
           >
             <div className='flex flex-col gap-y-2 py-5 px-5' >
               {
-                loading &&
+                (loading || loading2) &&
                 (
-                  <div className='text-white'>
+                  <div className='text-white font-bold'>
                     Loading ...
                   </div>
                 )

@@ -15,7 +15,6 @@ import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/common/Navbar';
 import PublicRoute from './components/core/Auth/PublicRoute';
 import PrivateRoute from './components/core/Auth/PrivateRoute';
-import { getCurrentUser } from './services/operations/profileServices';
 import DashBoard from './pages/DashBoard';
 import MyProfile from './components/core/Dashboard/MyProfile';
 import Settings from './components/core/Dashboard/Settings/Settings';
@@ -35,17 +34,10 @@ import CategoryCourses from './pages/CategoryCourses';
 import CourseDetails from './pages/CourseDetails';
 import ViewCourse from './pages/ViewCourse';
 
+
 function App() {
 
   const { token } = useSelector(state => state.auth);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (token) {
-      getCurrentUser(token, dispatch, navigate);
-    }
-  }, [token, dispatch, navigate]);
 
   // eslint-disable-next-line
   const { user } = useSelector(state => state.profile);
