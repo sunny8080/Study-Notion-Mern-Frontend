@@ -20,6 +20,7 @@ const Navbar = () => {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const { cartItemsCount } = useSelector((state) => state.cart)
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Navbar = () => {
         toast.error('Failed to load backend');
       }
       toast.dismiss(toastId);
+      setLoading(false);
     }
     fetchCatalog();
   }, []);
@@ -123,9 +125,12 @@ const Navbar = () => {
         {/* Login / SignUp / DashBoard / Cart */}
         <div className='hidden md:flex gap-x-4 items-center' >
           {
-            <div className='text-white'>
-              Testing
-            </div>
+            loading &&
+            (
+              <div className='text-white'>
+                Loading ...
+              </div>
+            )
           }
           {
             token === null &&
@@ -173,10 +178,19 @@ const Navbar = () => {
           />
 
           <HamburgerMenu
-            isMenuModalOpen={isMenuModalOpen}
+            isMenuModalOpen={true}
             setIsMenuModalOpen={setIsMenuModalOpen}
           >
             <div className='flex flex-col gap-y-2 py-5 px-5' >
+              {
+                loading &&
+                (
+                  <div className='text-white'>
+                    Loading ...
+                  </div>
+                )
+              }
+
               {
                 token === null &&
                 (
