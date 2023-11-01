@@ -123,6 +123,11 @@ const Navbar = () => {
         {/* Login / SignUp / DashBoard / Cart */}
         <div className='hidden md:flex gap-x-4 items-center' >
           {
+            <div className='text-white'>
+              Testing
+            </div>
+          }
+          {
             token === null &&
             (
               <Link to={'/login'} >
