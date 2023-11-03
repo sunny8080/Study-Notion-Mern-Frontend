@@ -193,7 +193,7 @@ const Navbar = () => {
           />
 
           <HamburgerMenu
-            isMenuModalOpen={true}
+            isMenuModalOpen={isMenuModalOpen}
             setIsMenuModalOpen={setIsMenuModalOpen}
           >
             <div className='flex flex-col gap-y-2 py-5 px-5' >
