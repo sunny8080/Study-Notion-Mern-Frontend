@@ -24,7 +24,7 @@ const CategoryCourses = () => {
       setLoading(true);
       const categories = await fetchCourseCategories(dispatch, navigate);
       const reqCat = categories.filter(
-        (cat) => cat.name.split(" ").join("-").toLowerCase() === categoryName
+        (cat) => cat.name.split(" ").join("-").toLowerCase() === categoryName.toLowerCase()
       );
 
       if (reqCat.length) {
