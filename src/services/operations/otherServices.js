@@ -21,7 +21,6 @@ export const getAllCategories = async () => {
     const response = await apiConnector('GET', categoriesApi.GET_GET_ALL_CATEGORIES_API);
     result = response.data?.data;
   } catch (error) {
-    console.log(error);
     toast.error('Could not fetch course categories, Refresh the page');
   }
   return result
