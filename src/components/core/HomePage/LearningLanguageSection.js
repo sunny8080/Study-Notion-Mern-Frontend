@@ -7,7 +7,7 @@ import Plan_your_lessons from '../../../assets/Images/Plan_your_lessons.png'
 
 const LearningLanguageSection = () => {
   return (
-    <div className='flex flex-col mt-10 mb-8 lg:mb-20 items-center' >
+    <div className='flex flex-col mt-5 md:mt-10 mb-8 lg:mb-20 items-center' >
       <div>
         <div className='text-4xl font-semibold text-center' >
           Your swiss knife for

@@ -56,15 +56,23 @@ const RenderSteps = () => {
         }
       </div>
 
-      <div className='flex justify-between select-none mb-16' >
-        {
-          steps.map(item => (
-            <div key={item.id} className={`min-w-[130px] text-center text-sm 
+      <div className='mb-10 md:mb-16'>
+        <div className='hidden md:flex justify-between select-none ' >
+          {
+            steps.map(item => (
+              <div key={item.id} className={`min-w-[130px] text-center text-sm 
               ${item.id <= step ? "text-richblack-5" : "text-richblack-500"}`} >
-              {item.title}
-            </div>
-          ))
-        }
+                {item.title}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div className='md:hidden font-semibold mb-5 text-xl'>
+        {step === 1 && "CourseInformationForm"}
+        {step === 2 && "CourseBuilderForm"}
+        {step === 3 && "PublishCourse"}
       </div>
 
       {step === 1 && <CourseInformationForm />}

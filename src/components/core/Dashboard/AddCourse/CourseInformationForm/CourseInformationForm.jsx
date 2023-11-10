@@ -147,7 +147,7 @@ const CourseInformationForm = () => {
   }
 
   return (
-    <div className='border rounded-md border-richblack-700 bg-richblack-800 p-6' >
+    <div className='border rounded-md border-richblack-700 bg-richblack-800 py-6 px-3 md:px-6' >
 
       <form onSubmit={handleSubmit(handleFormSubmit)}
         className='space-y-8' >
@@ -290,7 +290,7 @@ const CourseInformationForm = () => {
         </div>
 
         {/* Next Buttons  */}
-        <div className='flex gap-x-2 justify-end items-center' >
+        <div className='flex flex-col md:flex-row gap-5 md:gap-2 md:justify-end md:items-center' >
           {
             editCourse && (
               <div>

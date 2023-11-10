@@ -11,9 +11,9 @@ const CodeBlocks = ({ flexDir, heading, subHeading, ctaBtn1, ctaBtn2, codeText, 
   }
 
   return (
-    <div className={`flex flex-col ${flexDir} my-20 justify-between gap-10 `} >
+    <div className={`flex flex-col ${flexDir} my-10 md:my-20 justify-between gap-10 `} >
       {/* Section 1 - left */}
-      <div className='w-[50%] flex flex-col gap-8' >
+      <div className='w-full md:w-[50%] flex flex-col gap-8' >
         {heading}
         <div className='text-richblack-300  font-bold w-[85%] -mt-3' >
           {subHeading}

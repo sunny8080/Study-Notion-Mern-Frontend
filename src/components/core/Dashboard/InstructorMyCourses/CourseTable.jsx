@@ -7,14 +7,13 @@ import { HiClock } from "react-icons/hi"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
 import { COURSE_STATUS } from '../../../../utils/constants'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import secToDurationFormatter from '../../../../utils/secToDurationFormatter'
 import { toast } from "react-hot-toast"
 import ConfirmationModal from '../../../common/ConfirmationModal'
 import { deleteCourse, getCreatedCourses } from '../../../../services/operations/courseServices'
-
+import { Link } from 'react-router-dom'
 
 const CourseTable = ({ courses, setCourses }) => {
   const NO_OF_WORDS = 30;
@@ -50,103 +49,102 @@ const CourseTable = ({ courses, setCourses }) => {
       btn2Handler: loading ? () => { } : () => setConfirmationModalData(null),
       closeModalHandler: () => setConfirmationModalData(null),
     }
-
     setConfirmationModalData(modalData)
   }
 
   return (
-    <div className='rounded-md border border-richblack-800'>
+    <div className='rounded-md border border-richblack-800 overflow-x-auto'>
+      <div className='w-[850px] md:w-full'>
+        <table >
+          <thead >
+            <tr className="flex gap-x-10 border-b border-b-richblack-800 py-2 px-6" >
+              <th className="flex-1 text-left text-sm uppercase font-medium text-richblack-100" >Course</th>
+              <th className="text-left text-sm uppercase font-medium text-richblack-100" >Duration</th>
+              <th className="text-left text-sm uppercase font-medium text-richblack-100">Price</th>
+              <th className="text-left text-sm uppercase font-medium text-richblack-100">Actions</th>
+            </tr>
+          </thead>
 
-      <Table >
-        <Thead >
-          <Tr className="flex gap-x-10 border-b border-b-richblack-800 py-2 px-6" >
-            <Th className="flex-1 text-left text-sm uppercase font-medium text-richblack-100" >Course</Th>
-            <Th className="text-left text-sm uppercase font-medium text-richblack-100" >Duration</Th>
-            <Th className="text-left text-sm uppercase font-medium text-richblack-100">Price</Th>
-            <Th className="text-left text-sm uppercase font-medium text-richblack-100">Actions</Th>
-          </Tr>
-        </Thead>
+          <tbody className="flex flex-col gap-y-5" >
+            {
+              courses.map((course) => (
+                <tr key={course._id} className='mt-0 flex gap-x-10 border-b border-b-richblack-800 py-8 px-6' >
+                  <td >
+                    <Link to={course.status === COURSE_STATUS.PUBLISHED ? `/course/${course._id}` : ''} >
+                      <div className='flex flex-1 gap-x-4 cursor-pointer'>
+                        <img
+                          src={course.thumbnail}
+                          alt={"course-thumbnail"}
+                          className='h-[148px] w-[220px] rounded-lg object-cover'
+                        />
 
-        <Tbody className="flex flex-col gap-y-10" >
-          {
-            courses.map((course) => (
-              <Tr key={course._id} className='mt-8 md:mt-0 flex gap-x-10 border-b border-b-richblack-800 py-8 px-6' >
-                <Td
-                  className="flex flex-1 gap-x-4 cursor-pointer"
-                  onClick={() => navigate(`/course/${course._id}`)}
-                >
-                  <img
-                    src={course.thumbnail}
-                    alt={"course-thumbnail"}
-                    className='h-[148px] w-[220px] rounded-lg object-cover'
-                  />
-
-                  <div className='flex flex-col justify-between' >
-                    <p className='text-lg font-semibold text-richblack-5' >{course.title} :</p>
-                    <p className='text-xs text-richblack-300' >
-                      {
-                        course.description.split(" ").length > NO_OF_WORDS
-                          ?
-                          course.description.split(" ").slice(0, NO_OF_WORDS).join(" ") + " ..."
-                          :
-                          course.description
-                      }
-                    </p>
-                    <p className='text-xs text-white' >Created: {dateTimeFormatter(course.createdAt)}</p>
-                    <div >
-                      {
-                        course.status === COURSE_STATUS.DRAFT
-                          ?
-                          <div className='flex gap-x-2 items-center w-fit text-sm py-[2px] px-2 rounded-full text-pink-100 bg-richblack-700 font-medium' >
-                            <HiClock size={14} />
-                            <span>Drafted</span>
+                        <div className='flex flex-col justify-between' >
+                          <p className='text-lg font-semibold text-richblack-5' >{course.title} :</p>
+                          <p className='text-xs text-richblack-300' >
+                            {
+                              course.description.split(" ").length > NO_OF_WORDS
+                                ?
+                                course.description.split(" ").slice(0, NO_OF_WORDS).join(" ") + " ..."
+                                :
+                                course.description
+                            }
+                          </p>
+                          <p className='text-xs text-white' >Created: {dateTimeFormatter(course.createdAt)}</p>
+                          <div >
+                            {
+                              course.status === COURSE_STATUS.DRAFT
+                                ?
+                                <div className='flex gap-x-2 items-center w-fit text-sm py-[2px] px-2 rounded-full text-pink-100 bg-richblack-700 font-medium' >
+                                  <HiClock size={14} />
+                                  <span>Drafted</span>
+                                </div>
+                                :
+                                <div className='flex gap-x-2 items-center w-fit text-sm py-[2px] px-2 rounded-full text-yellow-100 bg-richblack-700 font-medium'>
+                                  <div className='grid place-items-center bg-yellow-100 text-richblack-700 h-3 aspect-square rounded-full' >
+                                    <FaCheck size={8} />
+                                  </div>
+                                  <span>Published</span>
+                                </div>
+                            }
                           </div>
-                          :
-                          <div className='flex gap-x-2 items-center w-fit text-sm py-[2px] px-2 rounded-full text-yellow-100 bg-richblack-700 font-medium'>
-                            <div className='grid place-items-center bg-yellow-100 text-richblack-700 h-3 aspect-square rounded-full' >
-                              <FaCheck size={8} />
-                            </div>
-                            <span>Published</span>
-                          </div>
-                      }
-                    </div>
-                  </div>
-                </Td>
+                        </div>
+                      </div>
+                    </Link>
+                  </td>
 
-                <Td className="text-sm font-medium text-richblack-100" >
-                  {secToDurationFormatter(course.totalDuration)}
-                </Td>
+                  <td className="text-sm font-medium text-richblack-100" >
+                    {secToDurationFormatter(course.totalDuration)}
+                  </td>
 
-                <Td className="text-sm font-medium text-richblack-100">
-                  ₹ {course.price}
-                </Td>
+                  <td className="text-sm font-medium text-richblack-100">
+                    ₹ {course.price}
+                  </td>
 
-                <Td className="text-sm font-medium text-richblack-100">
-                  <button
-                    disabled={loading}
-                    onClick={() => navigate(`/dashboard/edit-course/${course._id}`)}
-                    title='Edit'
-                    className='px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300'
-                  >
-                    <FiEdit2 size={20} />
-                  </button>
+                  <td className="text-sm font-medium text-richblack-100">
+                    <button
+                      disabled={loading}
+                      onClick={() => navigate(`/dashboard/edit-course/${course._id}`)}
+                      title='Edit'
+                      className='px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300'
+                    >
+                      <FiEdit2 size={20} />
+                    </button>
 
-                  <button
-                    onClick={() => handleCourseDeleteClick(course)}
-                    title='delete'
-                    className='px-2 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]'
-                  >
-                    <RiDeleteBin6Line size={20} />
-                  </button>
-                </Td>
+                    <button
+                      onClick={() => handleCourseDeleteClick(course)}
+                      title='delete'
+                      className='px-2 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]'
+                    >
+                      <RiDeleteBin6Line size={20} />
+                    </button>
+                  </td>
 
-              </Tr>
-            ))
-          }
-        </Tbody>
-
-      </Table>
-
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
 
       {
         confirmationModalData && <ConfirmationModal

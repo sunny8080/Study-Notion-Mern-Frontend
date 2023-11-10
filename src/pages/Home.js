@@ -40,14 +40,14 @@ const Home = () => {
         <div className=' relative mx-auto flex flex-col items-center justify-between  w-11/12 max-w-maxContent text-white gap-8' >
 
 
-          <Link to={'/signup'}>
-            <div className='rounded-full bg-richblack-800 text-richblack-200 mt-16 p-1 mx-auto w-fit drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] group transition-all duration-200 hover:scale-95 hover:drop-shadow-none '>
+          <div className='rounded-full bg-richblack-800 text-richblack-200 mt-16 p-1 mx-auto w-fit drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] group transition-all duration-200 hover:scale-95 hover:drop-shadow-none '>
+            <Link to={'/signup'}>
               <div className=' flex flex-row items-center gap-2 font-bold rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900 '>
                 Become an instructor
                 <FaArrowRight />
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           <div className='text-4xl text-center font-semibold' >
             Empower Your Future with
@@ -114,7 +114,7 @@ const Home = () => {
               flexDir={'lg:flex-row-reverse'}
 
               heading={
-                <div className='text-4xl w-[60%] font-semibold text-white' >
+                <div className='text-4xl w-full md:w-[60%] font-semibold text-white' >
                   Start
                   <HighlightedText text={"coding in seconds"} />
                 </div>
@@ -148,8 +148,8 @@ const Home = () => {
 
       {/* Section 2 - White color section */}
       <div className='bg-pure-greys-5 text-richblue-700' >
-        <div className='homepage_bg h-[320px]'>
-          <div className='w-11/12 pt-[200px] max-w-maxContent mx-auto flex justify-center' >
+        <div className='homepage_bg h-[150px] md:h-[320px]'>
+          <div className='w-11/12 pt-[50px] md:pt-[200px] max-w-maxContent mx-auto flex justify-center' >
             <div className='flex flex-row gap-7' >
               <CTAButton active={true} linkto={'/signup'} >
                 <div className='flex flex-row items-center gap-2' >
@@ -165,7 +165,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='flex flex-col max-w-maxContent w-11/12 mt-10 lg:mt-16 mx-auto gap-8 items-center justify-between' >
+        <div className='flex flex-col max-w-maxContent w-11/12 mt-5 md:mt-10 lg:mt-16 mx-auto gap-8 items-center justify-between' >
           <div className='flex flex-row mb-10 justify-between gap-10' >
             <div className='text-4xl font-semibold w-[45%]' >
               Get the skills you need for a

@@ -2,7 +2,7 @@ import React from 'react'
 
 const CourseUploadTips = () => {
   return (
-    <div className='sticky lg:block top-10 max-w-[400px] flex-1 rounded-md border border-richblack-700 bg-richblack-800 p-6' >
+    <div className='sticky lg:block top-10 max-w-[400px] flex-1 rounded-md border border-richblack-700 bg-richblack-800 p-6 ' >
       <p className='text-lg text-richblack-5 mb-8' >⚡ Course Upload Tips</p>
 
       <ul className='ml-5 list-item list-disc space-y-4 text-xs text-richblack-5'>

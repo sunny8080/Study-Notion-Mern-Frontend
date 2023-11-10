@@ -117,7 +117,7 @@ const UploadFile = ({
                   video ?
                     (
 
-                      <video ref={videoRef} onLoadedMetadata={handleOnLoadMetaData} src={previewSource} controls className=' min-w-[350px] h-full w-full object-fill rounded-md' ></video>
+                      <video ref={videoRef} onLoadedMetadata={handleOnLoadMetaData} src={previewSource} controls className='min-w-[250px] md:min-w-[350px] h-full w-full object-fill rounded-md' ></video>
 
                     )
                     :

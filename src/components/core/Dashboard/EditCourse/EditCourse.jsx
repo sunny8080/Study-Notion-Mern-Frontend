@@ -58,7 +58,9 @@ const EditCourse = () => {
                 </div>
 
                 {/* Course Upload Tips */}
-                <CourseUploadTips />
+                <div className='hidden lg:block' >
+                  <CourseUploadTips />
+                </div>
               </div>
             )
             :

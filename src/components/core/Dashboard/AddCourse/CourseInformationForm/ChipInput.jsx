@@ -39,6 +39,15 @@ const ChipInput = ({ label, name, placeholder, register, errors, setValue, getVa
     }
   }
 
+  const handleAddChip = (e) => {
+    e.preventDefault();
+    const chipValue = getValues("chip").trim();
+    if (chipValue && !chips.includes(chipValue)) {
+      setChips([...chips, chipValue]);
+      setValue("chip", "");
+    }
+  }
+
   // Function to delete a chip
   const handleDeleteChip = (chipInd) => {
     const updatedChips = chips.filter((chip, ind) => ind !== chipInd);
@@ -77,6 +86,14 @@ const ChipInput = ({ label, name, placeholder, register, errors, setValue, getVa
         onKeyDown={handleKeyDown}
         {...register("chip")}
       />
+
+      <button
+        type='button'
+        onClick={handleAddChip}
+        className='font-semibold text-yellow-100 text-left mt-2'
+      >
+        Add
+      </button>
 
       {/* Render an error message if the chips input is empty */}
       {

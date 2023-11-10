@@ -181,6 +181,7 @@ const CourseDetails = () => {
 
                 <div className='mx-auto lg:mx-0 flex flex-col items-center lg:items-start max-w-maxContentTab xl:max-w-[810px]' >
                   <p className='text-sm w-full ml-5 lg:ml-0 text-left text-richblack-300' >Home / Learning /
+                    {" "}
                     <span className='text-yellow-25' >
                       {courseData.category.name}
                     </span>
@@ -198,7 +199,7 @@ const CourseDetails = () => {
 
                   <div className='flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5 my-5' >
 
-                    <p className='text-4xl font-bold text-richblack-5 sm:text-[42px]' >{courseData.title}</p>
+                    <p className='text-3xl sm:text-4xl font-bold text-richblack-5 ' >{courseData.title}</p>
                     <p className='text-richblack-200' >{courseData.description}</p>
 
                     <div className='flex items-center flex-wrap gap-2 text-md' >

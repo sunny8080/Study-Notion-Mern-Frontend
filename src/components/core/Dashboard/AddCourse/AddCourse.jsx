@@ -15,7 +15,9 @@ const AddCourse = () => {
 
 
       {/* Course Upload Tips */}
-      <CourseUploadTips />
+      <div className='hidden lg:block' >
+        <CourseUploadTips />
+      </div>
     </div>
   )
 }

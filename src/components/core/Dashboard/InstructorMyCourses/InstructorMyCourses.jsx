@@ -31,15 +31,30 @@ const InstructorMyCourses = () => {
 
   return (
     <div>
-      <div className='flex justify-between items-center mb-14' >
+      <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-14 gap-y-5' >
         <h1 className='text-3xl font-medium text-richblack-5' >My Courses</h1>
-        <IconBtn
-          type="btn"
-          text="Add Course"
-          onClickHandler={() => navigate("/dashboard/add-course")}
-        >
-          <VscAdd />
-        </IconBtn>
+        <div className='hidden md:block'>
+          <IconBtn
+            type="btn"
+            text="Add Course"
+            customClasses="hidden md:block"
+            onClickHandler={() => navigate("/dashboard/add-course")}
+          >
+            <VscAdd />
+          </IconBtn>
+        </div>
+
+
+        <div className='md:hidden'>
+          <IconBtn
+            type="btn"
+            text="Add Course"
+            customClasses="w-full md:w-0 my-5 !py-1 text-center grid place-items-center"
+            onClickHandler={() => navigate("/dashboard/add-course")}
+          >
+            <VscAdd />
+          </IconBtn>
+        </div>
       </div>
 
       <div >

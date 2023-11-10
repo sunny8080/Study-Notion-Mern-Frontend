@@ -71,6 +71,7 @@ const CategoryCourses = () => {
             <div className='bg-richblack-800' >
               <div className='mx-auto box-content px-10 flex flex-col gap-4 justify-center min-h-[200px] max-w-maxContentTab lg:max-w-maxContent ' >
                 <p className='text-sm text-richblack-300' >Home / Category /
+                  {" "}
                   <span className='text-yellow-25' >
                     {categoryPageData.requestedCategory?.name || categoryName}</span>
                 </p>

@@ -65,7 +65,7 @@ const InstructorDashboard = () => {
               (
                 <div>
                   {/* Pie charts and Stats */}
-                  <div className='flex gap-x-5 my-10' >
+                  <div className='flex flex-col md:flex-row gap-5 my-10' >
                     {/* Statistics */}
                     <div className='min-h-fit min-w-[250px] rounded-md bg-richblack-800 p-6' >
                       <p className='text-lg font-bold text-richblack-5' >Statistics</p>
@@ -120,10 +120,10 @@ const InstructorDashboard = () => {
                       </Link>
                     </div>
 
-                    <div className='flex gap-5 my-4' >
+                    <div className='flex flex-col md:flex-row gap-x-5 gap-y-7 my-4' >
                       {
                         dashboardData.coursesWithStats.slice(0, 3).map((courseWithStats, ind) => (
-                          <div key={ind} className='w-1/3' >
+                          <div key={ind} className='w-full md:w-1/3' >
                             <img
                               src={courseWithStats.course.thumbnail}
                               alt="Course-thumbnail"
