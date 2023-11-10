@@ -24,7 +24,7 @@ const SectionAccordion = ({ section, currentOpenSection, setCurrentOpenSection, 
   return (
     <div className='mt-2 cursor-pointer text-sm text-richblack-5' >
       <div
-        className='px-5 py-2 flex items-center justify-between gap-2 bg-richblack-700'
+        className='px-2 md:px-5 py-2 flex items-center justify-between gap-2 bg-richblack-700'
         onClick={() => setCurrentOpenSection(section._id)}
       >
         <p className='w-[70%] font-semibold ' >{section.title}</p>
@@ -43,7 +43,7 @@ const SectionAccordion = ({ section, currentOpenSection, setCurrentOpenSection, 
             <div
               key={index}
               onClick={() => navigate(`/view-course/${courseData._id}/section/${section._id}/sub-section/${subSection._id}`)}
-              className={`flex gap-3 px-5 py-2 items-center
+              className={`flex gap-3 px-2 md:px-5 py-5 md:py-2 items-center
               ${subSection._id === currentSubSection._id ?
                   "bg-yellow-200 font-semibold text-richblack-800" : "hover:bg-richblack-900 text-richblack-25"}
               `}
@@ -53,7 +53,7 @@ const SectionAccordion = ({ section, currentOpenSection, setCurrentOpenSection, 
                 type="checkbox"
                 checked={completedVideos.includes(subSection._id)}
                 onChange={() => { }}
-                className=' check-box-style  '
+                className='check-box-style'
               />
 
               <p>{subSection.title.substring(0, 50)}</p>

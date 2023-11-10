@@ -94,7 +94,7 @@ const ViewCourse = () => {
               <div className='relative flex bg-richblack-900 text-white' >
                 {/* left - Course Details SideBar */}
                 <div className='min-h-[calc(100vh-3.5rem)] bg-richblack-800' >
-                  <div className='h-[calc(100vh-3.5rem)] last:text-white w-[350px] max-w-[450px] ' >
+                  <div className='h-[calc(100vh-3.5rem)] last:text-white w-[175px] md:w-[350px] max-w-[450px] ' >
                     <CourseDetailsSidebar
                       currentOpenSection={currentOpenSection}
                       setCurrentOpenSection={setCurrentOpenSection}

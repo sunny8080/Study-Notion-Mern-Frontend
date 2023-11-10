@@ -4,7 +4,7 @@ import IconBtn from '../../common/IconBtn';
 import { useNavigate } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io'
 import SectionAccordion from './SectionAccordion';
-
+import { Link } from 'react-router-dom';
 
 const CourseDetailsSidebar = ({ currentOpenSection, setCurrentOpenSection, currentSubSection, setCurrentSubSection, setIsOpenReviewModal }) => {
   const { courseData, completedVideos, totalNoOfVideos } = useSelector(state => state.viewCourse);
@@ -16,14 +16,15 @@ const CourseDetailsSidebar = ({ currentOpenSection, setCurrentOpenSection, curre
         <div className='flex flex-col mx-5 mb-5 items-start justify-between gap-x-2 border-b border-richblack-600 py-5 text-lg text-richblack-25'
         >
 
-          <div className='flex w-full items-center justify-between' >
-            <div
-              className='flex items-center justify-center h-[25px] aspect-square rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90'
-              title='back'
-              onClick={() => navigate('/dashboard/enrolled-courses')}
-            >
-              <IoIosArrowBack size={20} />
-            </div>
+          <div className='flex flex-col md:flex-row w-full md:items-center md:justify-between gap-y-4' >
+            <Link to="/dashboard/enrolled-courses">
+              <div
+                className='flex items-center justify-center h-[25px] aspect-square rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90 transition-all duration-200'
+                title='back'
+              >
+                <IoIosArrowBack size={20} />
+              </div>
+            </Link>
 
             <IconBtn
               text={"Add Review"}

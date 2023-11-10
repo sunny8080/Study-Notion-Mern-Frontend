@@ -112,11 +112,11 @@ const VideoDetails = ({ subSection, loading }) => {
           )
           :
           (
-            <div className='px-6 flex-1 h-full w-full' >
-              <div className='flex flex-col gap-5 w-full' >
+            <div className='mt-5 md:mt-0 px-1 md:px-6 flex-1 h-full w-full overflow-x-auto' >
+              <div className=' flex flex-col gap-5 w-full' >
 
                 {/* Video Player */}
-                <div className='w-[80%]  mx-auto' >
+                <div className='w-full md:w-[80%] mx-auto' >
                   <Player
                     ref={playerRef}
                     src={subSection?.videoUrl}
