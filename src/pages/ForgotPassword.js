@@ -37,7 +37,7 @@ const ForgotPassword = () => {
                   !emailSent
                     ?
                     <p>
-                      'Have no fear. We\'ll email you instructions to reset your password. If you don\'t have access to your email we can try account recovery'
+                      Have no fear. We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery
                     </p>
                     :
                     <p>
