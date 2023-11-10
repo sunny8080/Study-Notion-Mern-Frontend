@@ -28,12 +28,12 @@ export const UpdatePassword = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmitChangePassForm)}>
-        <div className='my-10 rounded-md border border-richblack-700 bg-richblack-800 p-8 px-12'>
+        <div className='my-5 rounded-md border border-richblack-700 bg-richblack-800 p-8 px-12'>
           <h1 className='text-lg mb-6 font-semibold text-richblack-5' >Password</h1>
 
           <div className='flex flex-col lg:flex-row gap-5' >
             <div className='relative flex flex-col gap-x-2 w-full' >
-              <label htmlFor="oldPassword" className='label-style' >Current Password</label>
+              <label htmlFor="oldPassword" className='label-style' >Current Password <span className='text-pink-100'>*</span></label>
               <input
                 name='oldPassword'
                 id='oldPassword'
@@ -67,7 +67,7 @@ export const UpdatePassword = () => {
             </div>
 
             <div className='relative flex flex-col gap-x-2 w-full' >
-              <label htmlFor="newPassword" className='label-style' >New Password</label>
+              <label htmlFor="newPassword" className='label-style' >New Password <span className='text-pink-100'>*</span></label>
               <input
                 name='newPassword'
                 id='newPassword'

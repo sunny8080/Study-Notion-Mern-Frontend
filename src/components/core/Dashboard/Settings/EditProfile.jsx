@@ -30,14 +30,14 @@ const EditProfile = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmitProfileForm)}>
-        <div className='my-10 rounded-md border border-richblack-700 bg-richblack-800 p-8 px-12'>
+        <div className='my-5 rounded-md border border-richblack-700 bg-richblack-800 py-8 px-5 md:px-12'>
           <h1 className='text-lg mb-6 font-semibold text-richblack-5'>Profile Information</h1>
 
           <div className='flex flex-col gap-y-6'>
             <div className='flex flex-col md:flex-row gap-5'>
 
               <label className='w-full' >
-                <p className='label-style' >First Name</p>
+                <p className='label-style' >First Name <span className='text-pink-100'>*</span></p>
                 <input
                   type='text'
                   name='firstName'
@@ -54,7 +54,7 @@ const EditProfile = () => {
 
 
               <label className='w-full' >
-                <p className='label-style' >Last Name</p>
+                <p className='label-style' >Last Name <span className='text-pink-100'>*</span></p>
                 <input
                   type='text'
                   name='lastName'
@@ -73,7 +73,7 @@ const EditProfile = () => {
             <div className='flex flex-col md:flex-row gap-5'>
 
               <label className='w-full' >
-                <p className='label-style' >Date of Birth</p>
+                <p className='label-style' >Date of Birth <span className='text-pink-100'>*</span></p>
                 <input
                   type='date'
                   name='dob'
@@ -100,7 +100,7 @@ const EditProfile = () => {
 
 
               <label className='w-full' >
-                <p className='label-style' >Gender</p>
+                <p className='label-style' >Gender <span className='text-pink-100'>*</span></p>
                 <select
                   type='text'
                   name='gender'
@@ -121,7 +121,7 @@ const EditProfile = () => {
             <div className='flex flex-col md:flex-row gap-5'>
 
               <label className='w-full' >
-                <p className='label-style' >Contact Number</p>
+                <p className='label-style' >Contact Number <span className='text-pink-100'>*</span></p>
                 <input
                   type='tel'
                   name='contactNumber'
@@ -151,7 +151,7 @@ const EditProfile = () => {
 
 
               <label className='w-full' >
-                <p className='label-style' >About</p>
+                <p className='label-style' >About <span className='text-pink-100'>*</span></p>
                 <input
                   type='text'
                   name='about'

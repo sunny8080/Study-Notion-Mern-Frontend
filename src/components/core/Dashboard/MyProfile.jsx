@@ -28,10 +28,18 @@ const MyProfile = () => {
         <IconBtn customClasses={"hidden md:block"} text={'Edit'} onClickHandler={() => navigate('/dashboard/settings')} children={<RiEditBoxLine />} />
       </div>
 
+      <div className='md:hidden'>
+        <IconBtn
+          text={'Edit Profile'}
+          onClickHandler={() => navigate('/dashboard/settings')}
+          customClasses="w-full my-5 !py-1 text-center grid place-items-center"
+          children={<RiEditBoxLine />} />
+      </div>
+
       <div className='flex flex-col gap-y-10 my-7 md:my-10 rounded-md border border-richblack-700 p-8 px-3 md:px-12 bg-richblack-800'>
         <div className='flex items-center justify-between' >
           <h2 className='text-lg font-semibold text-richblack-5'>About</h2>
-          <IconBtn text={'Edit'} onClickHandler={() => navigate('/dashboard/settings')} children={<RiEditBoxLine />} />
+          <IconBtn text={'Edit'} customClasses="hidden md:block" onClickHandler={() => navigate('/dashboard/settings')} children={<RiEditBoxLine />} />
         </div>
         <p className={`${user?.profile?.about ? 'text-richblack-5' : 'text-richblack-400'} text-sm font-medium`} >{user?.profile?.about || 'Write Something About Yourself'}</p>
       </div>
@@ -39,7 +47,7 @@ const MyProfile = () => {
       <div className='flex flex-col gap-y-5 md:gap-y-10 rounded-md border border-richblack-700 p-8 px-3 md:px-12 bg-richblack-800 '>
         <div className='flex items-center justify-between w-full' >
           <h2 className='text-lg font-semibold text-richblack-5' >Personal Details</h2>
-          <IconBtn text={'Edit'} onClickHandler={() => navigate('/dashboard/settings')} children={<RiEditBoxLine />} />
+          <IconBtn text={'Edit'} customClasses="hidden md:block" onClickHandler={() => navigate('/dashboard/settings')} children={<RiEditBoxLine />} />
         </div>
 
         <div className='flex flex-col md:flex-row gap-y-5'>

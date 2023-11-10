@@ -21,7 +21,7 @@ const Cart = () => {
           :
           (
             <div className='bg-richblack-900 text-white'>
-              <h2 className=' text-3xl font-medium text-richblack-5 mb-14' >Cart</h2>
+              <h2 className=' text-3xl font-medium text-richblack-5 mb-5 md:mb-10' >Cart</h2>
               <p className='font-semibold text-richblack-400 border-b border-richblack-400 pb-2' >{cartItemsCount} Courses in Cart</p>
 
               <div>

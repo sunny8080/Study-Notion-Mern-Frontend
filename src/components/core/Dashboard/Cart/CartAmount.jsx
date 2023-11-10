@@ -20,7 +20,7 @@ const CartAmount = () => {
   }
 
   return (
-    <div className='min-w-[280px] rounded-md border border-richblack-700 bg-richblack-800 p-6' >
+    <div className='min-w-[280px] mx-auto md:mx-0 rounded-md border border-richblack-700 bg-richblack-800 p-6' >
       <p className='text-xm font-medium text-richblack-300 mb-1' >Total : </p>
       <p className='text-3xl font-medium text-yellow-100 mb-6' >₹ {cartTotalAmount}</p>
 

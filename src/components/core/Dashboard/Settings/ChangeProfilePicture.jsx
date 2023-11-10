@@ -46,12 +46,12 @@ const ChangeProfilePicture = () => {
   }
 
   return (
-    <div className='flex items-center justify-between rounded-md border border-richblack-700 bg-richblack-800 p-8 px-12'>
-      <div className='flex gap-x-4 items-center' >
+    <div className='flex items-center justify-between rounded-md border border-richblack-700 bg-richblack-800 p-8 px-2 md:px-12'>
+      <div className='flex gap-x-4 items-center ' >
         <div>
           <img src={previewSource || user?.avatar}
             alt={`profile-${user?.firstName}`}
-            className='aspect-square w-[78px] rounded-full object-cover' />
+            className='aspect-square w-[60px] md:w-[78px] rounded-full object-cover' />
         </div>
 
         <div className='space-y-2'>
@@ -76,9 +76,6 @@ const ChangeProfilePicture = () => {
                   <GrInProgress className='text-lg text-richblack-900' />
               }
             </IconBtn>
-
-
-
 
           </div>
         </div>
