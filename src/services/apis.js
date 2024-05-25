@@ -1,4 +1,5 @@
 const BASE_URL = process.env.REACT_APP_BACKEND_BASE_URL
+// const BASE_URL = "https://api-krishna-ayurvedic.onrender.com/api/v1"
 
 // AUTHENTICATION API
 export const authApi = {

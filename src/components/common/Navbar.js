@@ -50,11 +50,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const getCurrentUserDetails = async () => {
-      setLoading(true);
+      dispatch(setLoading(true));
       if (token) {
         await getCurrentUser(token, dispatch, navigate);
       }
-      setLoading(false);
+      dispatch(setLoading(false));
     }
     getCurrentUserDetails();
   }, [token, dispatch, navigate]);
