@@ -16,7 +16,7 @@ const CourseCard = ({ course, imgHeight }) => {
 
         <div className='flex flex-col gap-2 px-1 py-3' >
           <p className='text-xl text-richblack-5' >{course.title}</p>
-          <p className='text-sm text-richblack-50' >{course.instructor.firstName} {course.instructor.lastName}</p>
+          <p className='text-sm text-richblack-50' >{course.instructor?.firstName} {course.instructor?.lastName}</p>
           <div className='flex items-center gap-2' >
             <p className='text-yellow-5' >{course.averageRating}</p>
 

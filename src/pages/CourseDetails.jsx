@@ -211,7 +211,7 @@ const CourseDetails = () => {
                       <p className='text-richblack-200' >{courseData.numberOfEnrolledStudents} students</p>
                     </div>
 
-                    <p className='text-richblack-5' >Created by {courseData.instructor.firstName} {courseData.instructor.lastName}</p>
+                    <p className='text-richblack-5' >Created by {courseData.instructor?.firstName} {courseData.instructor?.lastName}</p>
 
                     <div className='flex flex-wrap gap-5 text-lg' >
                       <p className='flex items-center gap-2' >
@@ -357,7 +357,7 @@ const CourseDetails = () => {
                         className='h-14 aspect-square rounded-full object-cover'
                       />
 
-                      <p className='text-lg' >{courseData.instructor.firstName} {courseData.instructor.lastName}</p>
+                      <p className='text-lg' >{courseData.instructor?.firstName} {courseData.instructor?.lastName}</p>
                     </div>
                     <p className='text-richblack-50' >
                       {courseData?.instructor?.profile?.about}

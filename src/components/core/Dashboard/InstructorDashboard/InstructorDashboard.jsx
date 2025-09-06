@@ -40,7 +40,7 @@ const InstructorDashboard = () => {
   return (
     <div>
       <div className='space-y-2' >
-        <p className='text-richblack-5 text-2xl font-bold ' >Hi, {user.firstName} 👋 </p>
+        <p className='text-richblack-5 text-2xl font-bold ' >Hi, {user?.firstName} 👋 </p>
         <p className='text-richblack-200 font-medium ' >Let's start something new</p>
       </div>
 
